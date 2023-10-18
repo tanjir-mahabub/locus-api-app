@@ -3,17 +3,14 @@ import { User } from './user.entity';
 
 @Injectable()
 export class UserService {
-  private readonly users: User[];
+    private users: User[] = [];
 
-  constructor() {
-    // Initialize your user data here (from a database, for example).
-  }
+    async create(user: User): Promise<User> {
+        this.users.push(user);
+        return user;
+    }
 
-  async findById(id: number): Promise<User | undefined> {
-    return this.users.find(user => user.id === id);
-  }
-
-  async findByUsername(username: string): Promise<User | undefined> {
-    return this.users.find(user => user.username === username);
-  }
+    async findByRole(role: string): Promise<User[]> {
+        return this.users.filter((user)=> user.role === role);
+    }
 }
