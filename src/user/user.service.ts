@@ -13,4 +13,8 @@ export class UserService {
     async findByRole(role: string): Promise<User[]> {
         return this.users.filter((user)=> user.role === role);
     }
+
+    async findByUsername(username: string): Promise<User | undefined> {
+        return this.users.find((user) => user.username === username);
+    }
 }
