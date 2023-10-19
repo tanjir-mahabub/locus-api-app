@@ -1,6 +1,6 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
-const config: TypeOrmModuleOptions = {
+const DatabaseConfig: TypeOrmModuleOptions = {
   type: 'postgres',
   host: process.env.DATABASE_HOST,
   port: parseInt(process.env.DATABASE_PORT, 10),
@@ -11,4 +11,4 @@ const config: TypeOrmModuleOptions = {
   synchronize: true, 
 };
 
-export default config;
+export default DatabaseConfig;
